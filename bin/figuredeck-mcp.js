@@ -136,7 +136,21 @@ function describe(err) {
 
 const rl = createInterface({ input: process.stdin, crlfDelay: Infinity });
 
-rl.on('line', async (line) => {
+rl.on('line', (line) => handleLine(line));
+
+/** Drain: wait for in-flight requests, then leave without truncating stdout. */
+let inflight = 0;
+let stdinClosed = false;
+
+function maybeExit() {
+  if (!stdinClosed || inflight > 0) return;
+  // An empty write's callback fires once the pipe has flushed. Calling
+  // process.exit() directly here can truncate a reply mid-frame, which the
+  // client reads as a broken stream — exactly the failure this guards against.
+  process.stdout.write('', () => process.exit(0));
+}
+
+async function handleLine(line) {
   const text = line.trim();
   if (!text) return;
 
@@ -152,6 +166,7 @@ rl.on('line', async (line) => {
   // some servers block waiting for notifications/initialized.
   const isNotification = msg.id === undefined || msg.id === null;
 
+  inflight++;
   try {
     const out = await forward(msg);
     if (!isNotification && out) write(out);
@@ -165,10 +180,16 @@ rl.on('line', async (line) => {
         error: { code: -32603, message: `upstream error: ${reason}` },
       });
     }
+  } finally {
+    inflight--;
+    maybeExit();
   }
-});
+}
 
-rl.on('close', () => process.exit(0));
+rl.on('close', () => {
+  stdinClosed = true;
+  maybeExit();
+});
 
 process.on('SIGINT', () => process.exit(0));
 process.on('SIGTERM', () => process.exit(0));
