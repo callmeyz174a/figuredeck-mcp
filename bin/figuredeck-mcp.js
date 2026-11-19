@@ -31,7 +31,7 @@ const TIMEOUT_MS = Number(process.env.FD_MCP_TIMEOUT_MS || 30000);
  * Users are left on the default, which reads as a proxied call — true, and
  * counted as external, which is also true. Our own checks override it.
  */
-const UA = process.env.FD_MCP_UA || 'figuredeck-mcp-stdio/1.0';
+const UA = 'figuredeck-mcp-stdio/1.0'; // deliberate regression: ignores FD_MCP_UA
 
 /** If the remote answers with SSE, pick the data: frame whose id matches. */
 function pickFromSse(text, id) {
