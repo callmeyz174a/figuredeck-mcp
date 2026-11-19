@@ -76,6 +76,8 @@ suffix matters — without state disambiguation, identically named counties coll
 
 ## Verify it yourself
 
+The test ships with the package, so this works from a clone or from an install:
+
 ```bash
 npm install   # no dependencies, this just wires up the script
 npm run smoke

@@ -70,6 +70,8 @@ Source: FHFA county file for calendar year 2026.
 
 ## 自己验一遍
 
+测试脚本随包发布，克隆后或安装后都能跑：
+
 ```bash
 npm install   # 无依赖，这一步只是挂上脚本
 npm run smoke
