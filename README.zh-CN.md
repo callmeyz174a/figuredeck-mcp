@@ -93,12 +93,19 @@ npm run test:ua   # 离线：断言代理实际发出的 UA
 FD_MCP_URL=http://127.0.0.1:8788/mcp npm run smoke
 ```
 
+CI 只跑离线那一半：每个入口 `node --check`，加上 node 20/22 各跑一遍 `test/ua.js`。
+`test/smoke.js` **故意不进 CI**：它要出网、会因与代码无关的原因变红，而且每跑一次都在服务端
+公开的调用计数上加一。一个会把被验数字自己抬高的检查，比没有检查更糟，所以 smoke 保留为发布
+前手动跑的一步。
+
 ## 这个仓库里有什么
 
 | 路径 | 内容 |
 |---|---|
 | `bin/figuredeck-mcp.js` | stdio → Streamable HTTP 代理，唯一在你本机运行的代码 |
 | `test/smoke.js` | 针对公开端点的九条实时断言 |
+| `test/ua.js` | 离线断言：代理实际发出的请求头 |
+| `.github/workflows/ci.yml` | 语法检查 + `test/ua.js`，node 20 与 22，全离线 |
 | `server.json` | MCP Registry 清单，`com.figuredeck/conforming-limits` |
 | `README.md`、`README.zh-CN.md` | 本文档，英文与中文各一份 |
 

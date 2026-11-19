@@ -101,12 +101,20 @@ Point it at a local build instead of production:
 FD_MCP_URL=http://127.0.0.1:8788/mcp npm run smoke
 ```
 
+CI runs the offline half only — `node --check` on every entry point, plus `test/ua.js` on node 20
+and 22. `test/smoke.js` is deliberately not in CI: it needs outbound network, it goes red for
+reasons that have nothing to do with this code, and each run increments the call counter the server
+publishes. A check that inflates the number it exists to validate is worse than no check, so smoke
+stays a manual, pre-release step.
+
 ## What is in this repository
 
 | Path | What it is |
 |---|---|
 | `bin/figuredeck-mcp.js` | stdio → Streamable HTTP proxy, the only code you run locally |
 | `test/smoke.js` | nine live assertions against the public endpoint |
+| `test/ua.js` | offline assertion on the request header the proxy actually sends |
+| `.github/workflows/ci.yml` | syntax + `test/ua.js` on node 20 and 22, offline |
 | `server.json` | MCP Registry manifest for `com.figuredeck/conforming-limits` |
 | `README.md`, `README.zh-CN.md` | this document, in English and Chinese |
 
