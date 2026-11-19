@@ -46,6 +46,10 @@ Claude Desktop (`claude_desktop_config.json`):
 The proxy forwards every call to the hosted endpoint. Nothing is cached locally, so you never get
 a stale copy of the limits.
 
+It identifies itself with the user-agent `figuredeck-mcp-stdio/1.0`, which is how the endpoint tells
+a proxied call from a direct one. Set `FD_MCP_UA` if you would rather send your own: the endpoint
+records that string and nothing else — never the arguments, never the amounts you type in.
+
 ## Tools
 
 | Tool | Arguments | Returns |
@@ -83,6 +87,7 @@ The test ships with the package, so this works from a clone or from an install:
 ```bash
 npm install   # no dependencies, this just wires up the script
 npm run smoke
+npm run test:ua   # offline: asserts the user-agent the proxy really sends
 ```
 
 Nine assertions over the real protocol, including exact dollar amounts: `$1,063,750` for King

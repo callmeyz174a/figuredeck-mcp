@@ -42,6 +42,9 @@ Claude Desktop 的 `claude_desktop_config.json`：
 
 代理把每次调用原样转给托管端点，本地不缓存任何数据，所以不会出现「装了个旧版上限表」的情况。
 
+代理会带上 `figuredeck-mcp-stdio/1.0` 这个 UA，端点靠它区分「经代理调用」与「直连」。想换成自己的
+就设 `FD_MCP_UA`。端点只记这个字符串，不记参数，也不记你输入的金额。
+
 ## 三个工具
 
 | 工具 | 参数 | 返回 |
@@ -77,6 +80,7 @@ Source: FHFA county file for calendar year 2026.
 ```bash
 npm install   # 无依赖，这一步只是挂上脚本
 npm run smoke
+npm run test:ua   # 离线：断言代理实际发出的 UA
 ```
 
 走真实协议跑九条断言，断言的是具体金额：King 县 `$1,063,750`，40 万美元贷款 6.5% 利率的月供

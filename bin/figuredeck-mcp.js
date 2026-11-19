@@ -21,6 +21,18 @@ import { createInterface } from 'node:readline';
 const ENDPOINT = process.env.FD_MCP_URL || 'https://mcp.figuredeck.com/mcp';
 const TIMEOUT_MS = Number(process.env.FD_MCP_TIMEOUT_MS || 30000);
 
+/**
+ * The endpoint mirrors this header into its own call counter, so it decides
+ * whether a call looks like a user or like us. It must therefore be possible to
+ * change it: a hard-coded string means every test run inflates the "external
+ * usage" number, and that number is the only evidence we have about whether
+ * anyone outside actually calls this thing.
+ *
+ * Users are left on the default, which reads as a proxied call — true, and
+ * counted as external, which is also true. Our own checks override it.
+ */
+const UA = process.env.FD_MCP_UA || 'figuredeck-mcp-stdio/1.0';
+
 /** If the remote answers with SSE, pick the data: frame whose id matches. */
 function pickFromSse(text, id) {
   const payloads = [];
@@ -47,7 +59,7 @@ async function postOnce(msg) {
   const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json, text/event-stream',
-    'User-Agent': 'figuredeck-mcp-stdio/1.0',
+    'User-Agent': UA,
   };
   if (sessionId) headers['mcp-session-id'] = sessionId;
 

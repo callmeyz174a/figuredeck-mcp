@@ -28,9 +28,15 @@ const EXPECT = {
   payment400k: 2528,
 };
 
+// This suite runs against the live endpoint, and the endpoint counts every
+// tools/call. Sending the default UA would make our own checks indistinguishable
+// from a real user, so the runner identifies itself. Overriding is allowed, but
+// the default is what protects the usage numbers.
+const UA = process.env.FD_MCP_UA || 'figuredeck-smoke/1.0';
+
 const child = spawn(process.execPath, [PROXY], {
   stdio: ['pipe', 'pipe', 'inherit'],
-  env: process.env,
+  env: { ...process.env, FD_MCP_UA: UA },
 });
 
 let buf = '';

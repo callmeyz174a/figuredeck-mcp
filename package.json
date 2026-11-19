@@ -32,6 +32,8 @@
     "url": "git+https://github.com/callmeyz174a/figuredeck-mcp.git"
   },
   "scripts": {
-    "smoke": "node test/smoke.js"
+    "smoke": "node test/smoke.js",
+    "test:ua": "node test/ua.js",
+    "test": "node test/ua.js && node test/smoke.js"
   }
 }
