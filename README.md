@@ -1,5 +1,7 @@
 # FigureDeck MCP — US mortgage data for AI agents
 
+[![FigureDeck US Mortgage Data — MCP connector rated A on Glama](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits/badges/score.svg)](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits)
+
 English | [简体中文](README.zh-CN.md)
 
 An MCP server that answers three questions with sourced numbers instead of guesses:

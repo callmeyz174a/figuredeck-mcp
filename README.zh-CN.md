@@ -1,5 +1,7 @@
 # FigureDeck MCP 工具 — 用真实数据回答美国房贷问题
 
+[![FigureDeck US Mortgage Data — MCP connector rated A on Glama](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits/badges/score.svg)](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits)
+
 [English](README.md) | 简体中文
 
 一个 MCP 服务，用带来源的实数回答三个问题，而不是让模型去猜：
