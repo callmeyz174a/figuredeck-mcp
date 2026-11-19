@@ -1,0 +1,36 @@
+{
+  "name": "figuredeck-mcp",
+  "version": "1.0.0",
+  "description": "US mortgage data for AI agents: 2026 FHFA conforming loan limits for 3,235 counties, monthly payment, and affordability — as an MCP server.",
+  "type": "module",
+  "bin": {
+    "figuredeck-mcp": "./bin/figuredeck-mcp.js"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mortgage",
+    "conforming-loan-limits",
+    "fhfa",
+    "real-estate",
+    "finance"
+  ],
+  "license": "MIT",
+  "homepage": "https://figuredeck.com/us/mortgage/conforming-limit/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callmeyz174a/figuredeck-mcp.git"
+  },
+  "scripts": {
+    "smoke": "node test/smoke.js"
+  }
+}

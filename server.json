@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.figuredeck/conforming-limits",
+  "title": "FigureDeck US Mortgage Data",
+  "description": "2026 US conforming loan limits for 3,235 counties, plus mortgage payment and affordability math",
+  "version": "1.0.0",
+  "websiteUrl": "https://figuredeck.com/us/mortgage/conforming-limit/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.figuredeck.com/mcp"
+    }
+  ]
+}
