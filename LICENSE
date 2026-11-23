@@ -19,10 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Data note: the conforming loan limits served by this endpoint come from the
-Federal Housing Finance Agency (FHFA) county-level conforming loan limit file
-and are in the public domain. The MIT grant above covers the code in this
-repository, not the underlying government data.
