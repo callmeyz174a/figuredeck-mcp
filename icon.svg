@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#0B2237"/>
+  <!-- three steps rising left to right: the three annual limits -->
+  <rect x="112" y="300" width="72" height="112" rx="14" fill="#2C6E8F"/>
+  <rect x="220" y="240" width="72" height="172" rx="14" fill="#3E9DBF"/>
+  <rect x="328" y="164" width="72" height="248" rx="14" fill="#6FD3E8"/>
+  <!-- baseline -->
+  <rect x="96" y="424" width="320" height="16" rx="8" fill="#E8F4F8" opacity="0.85"/>
+  <!-- a single dot marking the top value, reads as a data point -->
+  <circle cx="364" cy="132" r="16" fill="#E8F4F8"/>
+</svg>
