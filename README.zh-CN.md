@@ -1,6 +1,6 @@
 # FigureDeck MCP 工具 — 用真实数据回答美国房贷问题
 
-[![FigureDeck US Mortgage Data — MCP connector rated A on Glama](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits/badges/score.svg)](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits)
+[![FigureDeck US Mortgage Data — MCP connector rated A on Glama](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits/badges/score.svg)](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits) [![FigureDeck MCP on Glama](https://glama.ai/mcp/servers/callmeyz174a/figuredeck-mcp/badges/score.svg)](https://glama.ai/mcp/servers/callmeyz174a/figuredeck-mcp)
 
 [English](README.md) | 简体中文
 

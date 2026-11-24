@@ -1,6 +1,6 @@
 # FigureDeck MCP — US mortgage data for AI agents
 
-[![FigureDeck US Mortgage Data — MCP connector rated A on Glama](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits/badges/score.svg)](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits)
+[![FigureDeck US Mortgage Data — MCP connector rated A on Glama](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits/badges/score.svg)](https://glama.ai/mcp/connectors/com.figuredeck/conforming-limits) [![FigureDeck MCP on Glama](https://glama.ai/mcp/servers/callmeyz174a/figuredeck-mcp/badges/score.svg)](https://glama.ai/mcp/servers/callmeyz174a/figuredeck-mcp)
 
 English | [简体中文](README.zh-CN.md)
 
